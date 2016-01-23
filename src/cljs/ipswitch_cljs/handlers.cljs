@@ -12,3 +12,9 @@
  (fn  [db _]
    (js/console.log "inc")
    (update db :slide inc)))
+
+(re-frame/register-handler
+ :slide-back
+ (fn  [db _]
+   (js/console.log "dec")
+   (update db :slide #(if (zero? %) 0 (dec %)))))

@@ -6,3 +6,8 @@
  :name
  (fn [db]
    (reaction (:name @db))))
+
+(re-frame/register-sub
+ :slide
+ (fn [db]
+   (reaction (:slide @db))))

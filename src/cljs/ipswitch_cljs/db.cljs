@@ -2,4 +2,5 @@
 
 (def default-db
   {:name "re-frame"
-   :slide 1})
+   :slide 0
+   :max-slides 20})

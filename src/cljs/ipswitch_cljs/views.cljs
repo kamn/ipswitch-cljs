@@ -21,16 +21,28 @@
                 [re-com/title
                  :label "test"]]]))
 
+(defn select-slide [val]
+  (condp = val
+    0 slide-opening
+    1 slide-goals
+    slide-opening))
+
 
 (defn main-panel []
-  (fn []
-    [re-com/v-box
-     :align :center
-     :justify :center
-     :height "100%"
-
-     :children [[slide-opening]]
-                
-     :attr {:tabIndex 0
-            :on-key-down (fn [e] (js/console.log "click") (re-frame/dispatch [:slide-forward]))}]))
+  (let [slide-num (re-frame/subscribe [:slide])]
+    (fn []
+      [re-com/v-box
+       :align :center
+       :justify :center
+       :height "100%"
+       :children [[(select-slide @slide-num)]]
+       :attr {:tabIndex 0
+              :on-key-down (fn [e] 
+                            (js/console.log e.keyCode)
+                            (cond
+                             ;; right arrow
+                             (= e.keyCode 39) (re-frame/dispatch [:slide-forward])
+                             ;; left arror
+                             (= e.keyCode 37) (re-frame/dispatch [:slide-back])))}])))
+                          
             
