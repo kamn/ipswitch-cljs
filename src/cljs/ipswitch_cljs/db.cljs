@@ -1,4 +1,5 @@
 (ns ipswitch-cljs.db)
 
 (def default-db
-  {:name "re-frame"})
+  {:name "re-frame"
+   :slide 1})

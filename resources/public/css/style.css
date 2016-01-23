@@ -1,0 +1,12 @@
+#app {
+  height: 100%
+}
+
+body {
+  background-color: #222;
+  color: #DDD
+}
+
+body div#app .level1{
+  color: #DDD
+}

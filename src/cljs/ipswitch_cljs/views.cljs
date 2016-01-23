@@ -9,8 +9,28 @@
        :label (str "Hello from " @name)
        :level :level1])))
 
+(defn slide-opening []
+  (fn []
+    [re-com/v-box
+     :children [[title]]]))
+
+(defn slide-goals []
+  (fn []
+    [re-com/v-box
+     :children [
+                [re-com/title
+                 :label "test"]]]))
+
+
 (defn main-panel []
   (fn []
     [re-com/v-box
+     :align :center
+     :justify :center
      :height "100%"
-     :children [[title]]]))
+
+     :children [[slide-opening]]
+                
+     :attr {:tabIndex 0
+            :on-key-down (fn [e] (js/console.log "click") (re-frame/dispatch [:slide-forward]))}]))
+            
