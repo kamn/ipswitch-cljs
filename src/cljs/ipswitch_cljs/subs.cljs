@@ -11,3 +11,8 @@
  :slide
  (fn [db]
    (reaction (:slide @db))))
+
+(re-frame/register-sub
+ :example-1-state
+ (fn [db]
+   (reaction (:example-1-state @db))))
