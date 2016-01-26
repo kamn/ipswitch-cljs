@@ -15,3 +15,7 @@ body div#app {
 body div#app .level1{
   color: #DDD;
 }
+
+body div#app .main-view{
+  outline: none;
+}

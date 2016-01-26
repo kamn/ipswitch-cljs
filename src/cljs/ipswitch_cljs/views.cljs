@@ -209,6 +209,7 @@
        :align :center
        :justify :center
        :height "100%"
+       :class "main-view"
        :children [[(select-slide @slide-num)]]
        :attr {:tabIndex 0
               :on-key-down (fn [e] 
