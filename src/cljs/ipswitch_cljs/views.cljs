@@ -22,7 +22,8 @@
                  :label "Goals"
                  :level :level1]
                 [title
-                 :label "* Why is it profitable to use Clojurescript"
+                 ;;:label "* Timesaving example of Clojurescript"
+                 :label "* Profitable example of Clojurescript"
                  :level :level1]
                 [title
                  :label "* What is Clojurescript"
@@ -99,7 +100,7 @@
                  [v-box
                   :gap "10px"
                   :children [[input-text :model "" :on-change #() :placeholder "Name"]
-                             ;;[input-text :model "" :on-change #() :placeholder "Write Community"]
+                             [input-text :model "" :on-change #() :placeholder "Write Community"]
                              [input-text :model "" :on-change #() :placeholder "Read Community"]
                              [input-text :model "" :on-change #() :placeholder "Timeout"]]]
                  [h-box
@@ -170,7 +171,7 @@
                    :label "being reload with a tool called Figwheel."
                    :level :level1]
                   [title
-                   :label "";;"This is only able to happen because of the nature of Clojurescript"
+                   :label "This is only able to happen because of the nature of Clojurescript"
                    :level :level1]]]))
 (defn slide-intro-cljs []
     (fn []
