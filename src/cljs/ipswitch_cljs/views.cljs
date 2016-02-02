@@ -248,9 +248,6 @@
                    :label "What is Clojurescript to me?"
                    :level :level1]
                   [title
-                   :label "* Dynamic Development"
-                   :level :level1]
-                  [title
                    :label "* Functions are key unit of composition"
                    :level :level1]
                   [title
@@ -261,6 +258,9 @@
                    :level :level1]
                   [title
                    :label "* Immutability over mutability"
+                   :level :level1]
+                  [title
+                   :label "* Dynamic Development"
                    :level :level1]]]))
 
 (defn slide-example-code []
@@ -345,11 +345,20 @@
 (defn slide-reagent []
     (fn []
       ;;TODO - 
+      ;;IDEA - live code example
+      ;;https://github.com/reactjs/react-tutorial/blob/master/public/scripts/example.js
       [v-box
        :children [
                   [title
                    :label "Reagent"
-                   :level :level1]]]))
+                   :level :level1]
+                  [hyperlink-href
+                           :label "Site"
+                           :target "_blank"
+                           :href "http://reagent-project.github.io/"]
+                  [title
+                   :label "Reagent provides a minimalistic interface between ClojureScript and React. It allows you to define efficient React components using nothing but plain ClojureScript functions and data, that describe your UI using a Hiccup-like syntax."
+                   :level :level2]]]))
 
 (defn slide-re-frame []
     (fn []
