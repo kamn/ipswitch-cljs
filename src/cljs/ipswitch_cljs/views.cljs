@@ -248,6 +248,9 @@
                    :label "What is Clojurescript to me?"
                    :level :level1]
                   [title
+                   :label "* Dynamic Development"
+                   :level :level1]
+                  [title
                    :label "* Functions are key unit of composition"
                    :level :level1]
                   [title
@@ -291,16 +294,14 @@
 
 (defn slide-stateless-over-state []
     (fn []
-      ;;http://fsharpforfunandprofit.com/posts/expressions-vs-statements/
-      ;;http://lambda-the-ultimate.org/node/1044
-      ;;https://visualstudiomagazine.com/Articles/2011/04/01/pcnet_Using-LINQ.aspx
+      ;;http://stackoverflow.com/questions/844536/advantages-of-stateless-programming
       [v-box
        :children [
                   [title
                    :label "Stateless over Stateful"
                    :level :level1]
                   [title
-                   :label "* LINQ in C#"
+                   :label "* Purity"
                    :level :level1]]]))
 
 (defn slide-immut-over-mut []
