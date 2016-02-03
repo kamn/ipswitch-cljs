@@ -368,6 +368,10 @@
                   [title
                    :label "Reframe"
                    :level :level1]
+                  [hyperlink-href
+                           :label "re-frame Github"
+                           :target "_blank"
+                           :href "https://github.com/Day8/re-frame"]
                   [title
                    :label "({events} ==>) app-db  -->  components -->  Reagent  -->  React  -->  DOM ==> {events}"
                    :level :level2]]]))
@@ -379,7 +383,18 @@
        :children [
                   [title
                    :label "Figwheel"
-                   :level :level1]]]))
+                   :level :level1]
+                  [title
+                   :label "Figwheel builds your ClojureScript code and hot loads it into the browser as you are coding!"
+                   :level :level2]
+                  [hyperlink-href
+                           :label "Figwheel Github"
+                           :target "_blank"
+                           :href "https://github.com/bhauman/lein-figwheel"]
+                  [hyperlink-href
+                           :label "Figwheel Example"
+                           :target "_blank"
+                           :href "https://youtu.be/j-kj2qwJa_E?t=7m55s"]]]))
 
 (defn slide-conerns []
     (fn []
