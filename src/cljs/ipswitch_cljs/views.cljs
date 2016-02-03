@@ -396,14 +396,124 @@
                            :target "_blank"
                            :href "https://youtu.be/j-kj2qwJa_E?t=7m55s"]]]))
 
-(defn slide-conerns []
+(defn slide-concerns []
     (fn []
       ;;TODO - 
+      ;;https://www.youtube.com/watch?v=gsffg5xxFQI
+      ;;TODO - Give Derek Slager credit
       [v-box
        :children [
                   [title
                    :label "Concerns"
                    :level :level1]]]))
+
+(defn slide-concern-syntax []
+    (fn []
+      ;;TODO - 
+      ;;https://www.youtube.com/watch?v=gsffg5xxFQI
+      [v-box
+       :children [
+                  [title
+                   :label "Syntax"
+                   :level :level1]
+                  [title
+                   :label "fn(arg1, arg2, arg3) => (fn arg1 arg2 arg3)"
+                   :level :level2]]]))
+
+;;TODO -  Numbers on Github
+(defn slide-concern-community []
+    (fn []
+      ;;TODO - 
+      ;;https://www.youtube.com/watch?v=gsffg5xxFQI
+      [v-box
+       :children [
+                  [title
+                   :label "Community"
+                   :level :level1]
+                  [hyperlink-href
+                           :label "Newest 'clojurescript' questions"
+                           :target "_blank"
+                           :href "http://stackoverflow.com/questions/tagged/clojurescript"]
+                  [hyperlink-href
+                           :label "Newest 'coffeescript' questions"
+                           :target "_blank"
+                           :href "http://stackoverflow.com/questions/tagged/coffeescript"]]]))
+
+(defn slide-concern-debugging []
+    (fn []
+      ;;TODO - 
+      ;;https://www.youtube.com/watch?v=gsffg5xxFQI
+      [v-box
+       :children [
+                  [title
+                   :label "Debugging"
+                   :level :level1]
+                  [title
+                   :label "Source maps"
+                   :level :level2]]]))
+
+(defn slide-concern-bloat []
+    (fn []
+      ;;TODO - 
+      ;;https://www.youtube.com/watch?v=gsffg5xxFQI
+      [v-box
+       :children [
+                  [title
+                   :label "Bloat"
+                   :level :level1]
+                  [title
+                   :label "Goal is to target jQuery replacement"
+                   :level :level2]]]))
+
+(defn slide-concern-tooling []
+    (fn []
+      ;;TODO - 
+      ;;https://www.youtube.com/watch?v=gsffg5xxFQI
+      [v-box
+       :children [
+                  [title
+                   :label "Tooling"
+                   :level :level1]
+                  [title
+                   :label "One main tool: Lein"
+                   :level :level2]]]))
+
+(defn slide-concern-interop []
+    (fn []
+      ;;TODO - 
+      ;;https://www.youtube.com/watch?v=gsffg5xxFQI
+      [v-box
+       :children [
+                  [title
+                   :label "Interop"
+                   :level :level1]
+                  [title
+                   :label "cljsjs"
+                   :level :level2]]]))
+
+
+;; From State of Clojure 2015
+(defn slide-concern-viability []
+    (fn []
+      ;;TODO - 
+      ;;https://www.youtube.com/watch?v=gsffg5xxFQI
+      [v-box
+       :children [
+                  [title
+                   :label "Viability"
+                   :level :level1]
+                  [hyperlink-href
+                           :label "Companies usering Clojurescript"
+                           :target "_blank"
+                           :href "https://github.com/clojure/clojurescript/wiki/Companies-Using-ClojureScript"]
+                  [title
+                   :label "Parent language is Clojure. As long as Clojure exists so will Clojurescript."
+                   :level :level2]
+                  [hyperlink-href
+                           :label "Companies usering Clojure"
+                           :target "_blank"
+                           :href "http://clojure.org/community/companies"]]]))
+
 
 (defn select-slide [val]
   (condp = val
@@ -422,7 +532,7 @@
     12 slide-reagent
     13 slide-re-frame
     14 slide-figwheel
-    15 slide-conerns
+    15 slide-concerns
     slide-end))
 
 
