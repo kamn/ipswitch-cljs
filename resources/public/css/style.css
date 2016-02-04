@@ -23,3 +23,7 @@ body div#app .level2{
 body div#app .main-view{
   outline: none;
 }
+
+body div#app .white-modal{
+  color: #333;
+}

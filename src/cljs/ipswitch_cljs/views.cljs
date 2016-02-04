@@ -1,6 +1,8 @@
 (ns ipswitch-cljs.views
     (:require [re-frame.core :as re-frame]
-              [re-com.core :as re-com :refer [v-box h-box title label button single-dropdown input-text hyperlink-href]]))
+              [re-com.core :as re-com :refer [v-box h-box title label button 
+                                              single-dropdown input-text hyperlink-href
+                                              modal-panel]]))
 
 (defn slide-title []
   (let [name (re-frame/subscribe [:name])]
@@ -44,6 +46,26 @@
                  :level :level1]]]))
 
 
+#_(defn simple-modal-btns [& args]
+            (js/console.log args)
+    (fn [& args]
+      (let [btn-pairs (partition 2 args)]
+        (js/console.log btn-pairs)
+        (println btn-pairs)
+        (mapcat #([button :label %1 :on-click %2]) btn-pairs))))
+
+(defn simple-modal-btns [& args]
+    (let [btn-pairs (partition 2 args)]
+        (mapv #(vec [button :label (first %) :on-click (second %)]) btn-pairs)))
+
+#_(defn simple-modal-btns [text1 fn1 text2 fn2]
+    (fn []
+      [[button :label text1
+               :on-click fn1]
+       [button :label text2
+               :on-click fn2]]))
+
+
 (defn example-action-section []
   (fn []
     [v-box
@@ -62,39 +84,41 @@
                                         {:id 4 :label "Add Credential"}]]]]
                  [h-box
                   :gap "10px"
-                  :children [[button :label "Cancel"]
-                             [button :label "Next"
-                                     :on-click #(re-frame/dispatch [:example-step-forward])]]]]]))
+                  :children (simple-modal-btns "Cancel" #() "Next" #(re-frame/dispatch [:example-step-forward]))
+                            #_[[button :label "Cancel"]
+                               [button :label "Next"
+                                       :on-click #(re-frame/dispatch [:example-step-forward])]]]]]))
     
 
 (defn example-cred-section []
   (fn []
     [v-box
      :gap "10px"
+     ;;:align :end
      :children [
                  [h-box
                   :gap "10px"
+                  ;;:align :center
                   :children [[label :label "Select a Credential Type"]
                              [single-dropdown 
                               :on-change #(js/console.log %)
                               :model 1
                               :width "150px"
-                              :choices [{:id 1 :label "SNMP v1"}
-                                        {:id 2 :label "SNMP v2"}
-                                        {:id 3 :label "SNMP v3"}
-                                        {:id 4 :label "SSH"}
+                              :choices [{:id 1 :label "SSH"}
+                                        {:id 2 :label "SNMP v1"}
+                                        {:id 3 :label "SNMP v2"}
+                                        {:id 4 :label "SNMP v3"}
                                         {:id 5 :label "VMware"}]]]]
                  [h-box
                   :gap "10px"
                   :children [[button :label "Cancel"
+                                     ;;:class "btn-danger"
                                      :on-click #(re-frame/dispatch [:example-step-back])]
                              [button :label "Next"
+                                     ;;:class "btn-primary"
                                      :on-click #(re-frame/dispatch [:example-step-forward])]]]]]))
 
-;; Name
-;; Desc
-;; Read Community
-;; Write Community
+
 (defn example-snmp-section []
   (fn []
     [v-box
@@ -109,17 +133,22 @@
                  [h-box
                   :gap "10px"
                   :children [[button :label "Cancel"
+                                     ;;:class "btn-danger"
                                      :on-click #(re-frame/dispatch [:example-step-back])]
                              [button :label "Next"]]]]]))
+                                     ;;:class "btn-primary"]]]]]))
+                                        
 
 
 (defn slide-first-example []
   (let [state (re-frame/subscribe [:example-1-state])]
     (fn []
-      (cond 
-        (= 0 (:step @state)) [example-action-section]
-        (= 1 (:step @state)) [example-cred-section]
-        (= 2 (:step @state)) [example-snmp-section]))))
+      [modal-panel
+        :class "white-modal" 
+        :child (cond 
+                (= 0 (:step @state)) [example-action-section]
+                (= 1 (:step @state)) [example-cred-section]
+                (= 2 (:step @state)) [example-snmp-section])])))
 
 
 ;; Takes ~9 seconds
