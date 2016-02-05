@@ -315,7 +315,13 @@
                    :label "Expressions Over Statements"
                    :level :level1]
                   [title
-                   :label "* Purity"
+                   :label "* Expressions have some value"
+                   :level :level1]
+                  [title
+                   :label "* Statements is called for side-effects (IO, change variable)"
+                   :level :level1]
+                  [title
+                   :label "* Forces you to write small units of composition"
                    :level :level1]
                   [title
                    :label "* LINQ in C#"
@@ -324,13 +330,20 @@
 (defn slide-stateless-over-state []
     (fn []
       ;;http://stackoverflow.com/questions/844536/advantages-of-stateless-programming
+      ;;http://programmers.stackexchange.com/questions/101337/whats-the-difference-between-stateful-and-stateless
       [v-box
        :children [
                   [title
                    :label "Stateless over Stateful"
                    :level :level1]
                   [title
-                   :label "* Purity"
+                   :label "* Every transaction is performed as if it were being done for the very first time"
+                   :level :level1]
+                  [title
+                   :label "* Values"
+                   :level :level1]
+                  [title
+                   :label "* Previous transactions are remembered and may affect the current transaction"
                    :level :level1]]]))
 
 (defn slide-immut-over-mut []
