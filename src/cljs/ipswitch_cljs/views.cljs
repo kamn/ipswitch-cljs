@@ -545,23 +545,24 @@
 
 
 (defn select-slide [val]
-  (condp = val
-    0 slide-opening
-    1 slide-goals
-    2 slide-first-example
-    3 slide-reload-time
-    4 slide-how-demo
-    5 slide-intro-cljs
-    6 slide-example-code
-    7 slide-intro-cljs-personal
-    8 slide-expr-over-statement
-    9 slide-stateless-over-state
-    10 slide-immut-over-mut
-    11 slide-react
-    12 slide-reagent
-    13 slide-re-frame
-    14 slide-figwheel
-    15 slide-concerns
+  (nth 
+    [slide-opening
+     slide-goals
+     slide-first-example
+     slide-reload-time
+     slide-how-demo
+     slide-intro-cljs
+     slide-example-code
+     slide-intro-cljs-personal
+     slide-expr-over-statement
+     slide-stateless-over-state
+     slide-immut-over-mut
+     slide-react
+     slide-reagent
+     slide-re-frame
+     slide-figwheel
+     slide-concerns]
+    val
     slide-end))
 
 
