@@ -84,10 +84,10 @@
                                         {:id 4 :label "Add Credential"}]]]]
                  [h-box
                   :gap "10px"
-                  :children (simple-modal-btns "Cancel" #() "Next" #(re-frame/dispatch [:example-step-forward]))
-                            #_[[button :label "Cancel"]
+                  :children ;;(simple-modal-btns "Cancel" #() "Next" #(re-frame/dispatch [:example-step-forward]))
+                            [[button :label "Cancel"
                                [button :label "Next"
-                                       :on-click #(re-frame/dispatch [:example-step-forward])]]]]]))
+                                       :on-click #(re-frame/dispatch [:example-step-forward])]]]]]]))
     
 
 (defn example-cred-section []
@@ -126,9 +126,11 @@
      :children [
                  [v-box
                   :gap "10px"
-                  :children [[input-text :model "" :on-change #() :placeholder "Name"]
-                             [input-text :model "" :on-change #() :placeholder "Write Community"]
+                  :children [;;[label :label "Name"]
+                             [input-text :model "" :on-change #() :placeholder "Name"]
                              [input-text :model "" :on-change #() :placeholder "Read Community"]
+
+                             [input-text :model "" :on-change #() :placeholder "Write Community"]
                              [input-text :model "" :on-change #() :placeholder "Timeout"]]]
                  [h-box
                   :gap "10px"
@@ -164,7 +166,7 @@
                  :label "* To reload and return to previous state is ~9 seconds"
                  :level :level1]
                 [title
-                 :label "* To change code and see change it is < 1 seconds"
+                 :label "* To change code and see change it is < 1 second"
                  :level :level1]
                 [title
                  :label "* Web Devs reload browsers a few dozen of times per hour"
@@ -184,7 +186,7 @@
                    :label "* Quicker Feedback leads to quicker development time"
                    :level :level1]
                   [title
-                   :label "* To change code and see change it is < 1 seconds"
+                   :label "* To change code and see change it is < 1 second"
                    :level :level1]
                   [title
                    :label "* Web Devs reload browsers a few dozen of times per hour"
