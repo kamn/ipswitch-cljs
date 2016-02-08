@@ -8,7 +8,9 @@
   (let [name (re-frame/subscribe [:name])]
     (fn []
       [title
-       :label (str "Clojurescript For Fun and Profit")
+       ;;:label "Why you can quickly develop websites with Clojurescript"
+       :label "Clojurescript: A Dynamic Development Language"
+       ;;:label "Clojurescript For Fun and Profit"
        :level :level1])))
 
 (defn slide-opening []
@@ -24,18 +26,29 @@
                  :label "Goals"
                  :level :level1]
                 [title
-                 ;;:label "* Timesaving example of Clojurescript"
-                 :label "* Profitable example of Clojurescript"
+                 :label "* Demo"
                  :level :level1]
                 [title
-                 :label "* What is Clojurescript"
+                 :label "* What is Clojurescript?"
                  :level :level1]
                 [title
-                 :label "* What benefits does it offer"
+                 :label "* What other benefits does it offer?"
                  :level :level1]
                 [title
-                 :label "* Concerns"
+                 :label "* \"What about...\" (Concerns)"
                  :level :level1]]]))
+
+(defn slide-fake-bug []
+  (fn []
+    [v-box 
+      :children [
+                 [title 
+                  :label "Bug Report on adding SNMP creds"
+                  :level :level1]
+                 [title
+                  :label "You forgot the read community on snmpv1/v2"]]]))
+
+
 
 (defn slide-end []
   (fn []
@@ -85,9 +98,9 @@
                  [h-box
                   :gap "10px"
                   :children ;;(simple-modal-btns "Cancel" #() "Next" #(re-frame/dispatch [:example-step-forward]))
-                            [[button :label "Cancel"
-                               [button :label "Next"
-                                       :on-click #(re-frame/dispatch [:example-step-forward])]]]]]]))
+                            [[button :label "Cancel"]
+                             [button :label "Next"
+                                     :on-click #(re-frame/dispatch [:example-step-forward])]]]]]))
     
 
 (defn example-cred-section []
@@ -129,7 +142,6 @@
                   :children [;;[label :label "Name"]
                              [input-text :model "" :on-change #() :placeholder "Name"]
                              [input-text :model "" :on-change #() :placeholder "Read Community"]
-
                              [input-text :model "" :on-change #() :placeholder "Write Community"]
                              [input-text :model "" :on-change #() :placeholder "Timeout"]]]
                  [h-box
