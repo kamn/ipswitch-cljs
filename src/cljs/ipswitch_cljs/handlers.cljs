@@ -27,3 +27,8 @@
  :example-step-back
  (fn  [db _]
    (update-in db [:example-1-state :step] #(if (zero? %) 0 (dec %)))))
+
+(re-frame/register-handler
+ :example-hide
+ (fn  [db _]
+   (assoc-in db [:example-1-state :show?] false)))

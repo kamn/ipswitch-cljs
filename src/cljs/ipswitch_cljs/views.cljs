@@ -46,7 +46,8 @@
                   :label "Bug Report on adding SNMP creds"
                   :level :level1]
                  [title
-                  :label "You forgot the read community on snmpv1/v2"]]]))
+                  :label "\"The read community on snmpv1/v2 credentials are missing\""
+                  :level :level2]]]))
 
 
 
@@ -141,7 +142,7 @@
                   :gap "10px"
                   :children [;;[label :label "Name"]
                              [input-text :model "" :on-change #() :placeholder "Name"]
-                             [input-text :model "" :on-change #() :placeholder "Read Community"]
+                             ;;[input-text :model "" :on-change #() :placeholder "Read Community"]
                              [input-text :model "" :on-change #() :placeholder "Write Community"]
                              [input-text :model "" :on-change #() :placeholder "Timeout"]]]
                  [h-box
@@ -157,12 +158,14 @@
 (defn slide-first-example []
   (let [state (re-frame/subscribe [:example-1-state])]
     (fn []
-      [modal-panel
-        :class "white-modal" 
-        :child (cond 
-                (= 0 (:step @state)) [example-action-section]
-                (= 1 (:step @state)) [example-cred-section]
-                (= 2 (:step @state)) [example-snmp-section])])))
+      (when (:show? @state)
+        [modal-panel
+          :class "white-modal" 
+          :backdrop-on-click #(re-frame/dispatch [:example-hide])
+          :child (cond 
+                  (= 0 (:step @state)) [example-action-section]
+                  (= 1 (:step @state)) [example-cred-section]
+                  (= 2 (:step @state)) [example-snmp-section])]))))
 
 
 ;; Takes ~9 seconds
@@ -575,6 +578,7 @@
   (nth 
     [slide-opening
      slide-goals
+     slide-fake-bug
      slide-first-example
      slide-reload-time
      slide-how-demo
