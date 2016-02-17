@@ -547,6 +547,9 @@
                    :label "Interop"
                    :level :level1]
                   [title
+                   :label "(js/outsideFn arg1 arg2)"
+                   :level :level2]
+                  [title
                    :label "cljsjs"
                    :level :level2]]]))
 
@@ -592,7 +595,14 @@
      slide-reagent
      slide-re-frame
      slide-figwheel
-     slide-concerns]
+     slide-concerns
+     slide-concern-syntax
+     slide-concern-community
+     slide-concern-debugging
+     slide-concern-bloat
+     slide-concern-tooling
+     slide-concern-interop
+     slide-concern-viability]
     val
     slide-end))
 
